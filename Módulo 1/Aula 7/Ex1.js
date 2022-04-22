@@ -1,22 +1,22 @@
-const prompt = require('prompt-sync')();
+const prompt = require("prompt-sync")();
 
-let number
-let array = []
-let numberPar = []
-let numberImpar = []
-let i=0;
+let array = [];
+let arrayEven = [];
+let arrayOdd = [];
+let number;
 
-number = +prompt('Digite um número que você deseja: ');
+console.log("Digite um número:");
+number = +prompt();
 
-while ( i < number + 1){
-array.push(i);
-if ( i % 2 == 0){
-   numberPar.push(i);
- } else {
-   numberImpar.push(i);
- }
-} 
+for (i = 0; i <= number; i++) {
+  array.push(i);
+  if (i % 2 == 0) {
+    arrayEven.push(i);
+  } else {
+    arrayOdd.push(i);
+  }
+}
 
-console.log(`Array : ${array}.`);
-console.log(`Números pares: ${numberPar}.`);
-console.log(`Números Ímpares: ${numberImpar}.`);
+console.log(array);
+console.log(arrayEven);
+console.log(arrayOdd);
