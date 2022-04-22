@@ -5,20 +5,18 @@ console.log(`
 BEM VINDO A MINHA LOJA DE CARROS
 `);
 
-
 //Declaração das variáveis:
 let variaVeiculos = [];
 let variaAutonomia = [];
-let dist = []
+let dist = [];
 let index = 0;
 let teste;
-let v
+let v;
 
 console.log(`
 QUANTOS MODELOS  DE CARRO DESEJA CADASTRAR? 
 `);
 let variaQtd = +prompt();
-
 
 //Contador utilizando FOR:
 for (let i = 0; i < variaQtd; i++) {
@@ -52,8 +50,10 @@ console.log(
   `O modelo de carro mais é econômico é o ${variaVeiculos[index]}, andando de apenas ${variaAutonomia[index]}km para cada litro de gasolina `
 );
 
-for (let i in variaAutonomia){
-  v = 1000/ variaAutonomia[i]
-dist.push((v*5.5).toFixed(2)) 
-console.log(`O carro ${variaVeiculos[i]}, consumindo ${variaAutonomia[i]} com o custo de R$${dist[i]}, percorrendo 1000km.`)
+for (let i in variaAutonomia) {
+  v = 1000 / variaAutonomia[i];
+  dist.push((v * 5.5).toFixed(2));
+  console.log(
+    `O carro ${variaVeiculos[i]}, consumindo ${variaAutonomia[i]} com o custo de R$${dist[i]}, percorrendo 1000km.`
+  );
 }
