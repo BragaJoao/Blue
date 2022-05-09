@@ -1,6 +1,5 @@
 const prompt = require("prompt-sync")();
 
-
 let day = 1;
 let area = "area1";
 let characterName;
@@ -12,7 +11,7 @@ let characterAgi = 0;
 let d100;
 let playAgain;
 let tChoice;
-let j = 1
+let j = 1;
 
 //Apresentação do jogo e determinação do nome e atributos do personagem.
 console.log(`Bem vindo!
@@ -32,10 +31,9 @@ Para ter uma experiência mais agradável, recomendo força 15, defesa 10, agili
 
 do {
   let game = true;
-  day = 1
-  j = 1
-  area = 'area1'
-  
+  day = 1;
+  j = 1;
+  area = "area1";
 
   do {
     characterName = prompt("Escreva o nome do seu personagem: ");
@@ -98,11 +96,9 @@ do {
 
             Itens:       ${this.items}
             Equipamento:             `);
-            // FOR para observar o equipamento de forma alinhada verticalmente.
+      // FOR para observar o equipamento de forma alinhada verticalmente.
       for (let i = 0; i < this.equipment.length; i++) {
-
         console.log(`            ${this.equipment[i]}  `);
-
       }
       console.log("-----------");
       console.log();
@@ -188,7 +184,7 @@ do {
       }
     },
   };
-  
+
   // função Random, disponível no MDN, gera um valor aleatório inteiro entre dois números inteiros inclusos ( [a, b] ).
   function dado(min, max) {
     min = Math.ceil(min);
@@ -207,7 +203,7 @@ do {
     let dmg2;
 
     do {
-      combatD100 = dado(1,100)
+      combatD100 = dado(1, 100);
       if (hero.agi >= agiM) {
         console.log(`É a vez de ${hero.name}`);
         console.log(" Você atacou!");
@@ -329,7 +325,6 @@ do {
       }
     } while (hero.life != 0);
   }
-
 
   function firstDay() {
     console.log(
@@ -477,23 +472,23 @@ do {
 
   // SEGUNDA ÁREA
   function town() {
-    if (j == 1){ 
-    console.log(`
+    if (j == 1) {
+      console.log(`
   Revigorado com seus novos equipamentos, ${hero.name} decide ir para a capital procurar por tarefas para ajudar outras pessoas e ficar cada vez mais próximo do seu sonho de ser um herói.
   `);
-    if (hero.reputation < 5) {
-      console.log(`
+      if (hero.reputation < 5) {
+        console.log(`
     Ao chegar na cidade ${hero.name} percebe que as pessoas estão o evitando, e o olhando com rancor, então ele reflete que eles sabem que ele não tomou uma atitude digna de um herói.
     `);
-      prompt("APERTE ENTER PARA CONTINUAR");
-    } else if (hero.reputation >= 5) {
-      console.log(`
+        prompt("APERTE ENTER PARA CONTINUAR");
+      } else if (hero.reputation >= 5) {
+        console.log(`
     Ao chegar na cidade ${hero.name}, fica deslumbrado com as pessoas andando de um lado para o outro em um ritmo deslumbrante, e ele percebe que as pessoas o olham com ternura fazendo com que ele se sinta acolhido naquele local.
     `);
-      prompt("APERTE ENTER PARA CONTINUAR");
+        prompt("APERTE ENTER PARA CONTINUAR");
+      }
+      j++;
     }
-    j++
-  } 
     console.log(`
   Ao ir se aproximando do centro da cidade, ele começa a perceber que as pessoas estão nervosas e assustadas, até que encontra um soldado mais a frente gravemente ferido. Ele lhe conta que as vilas bárbaras que habitam nas proximades se uniram e na noite consiguiram se infiltrar no castelo de maneira furtiva e o tomaram, fazendo o rei e a rainha de reféns.
   `);
@@ -683,8 +678,7 @@ do {
   }
 
   while (game) {
-   
-    d100 = dado(1,100);
+    d100 = dado(1, 100);
 
     // AMANHECENDO
     if (timeCourse.time == "Dawn") {
@@ -710,9 +704,9 @@ do {
       } else if (area == "area2") {
         town();
       }
-     if (game == false){
-       break
-     }
+      if (game == false) {
+        break;
+      }
     }
 
     // COMEÇO DA NOITE
@@ -800,31 +794,40 @@ do {
       `${hero.name} fez suas tarefas de forma majestosa, e agora todos do reino o consideram um herói em ascensão.
       
       Você concluiu a história em ${day} dias.
-      `);
-      prompt(' Aperte ENTER para ver a janela de status final do seu personagem.');
+      `
+    );
+    prompt(
+      " Aperte ENTER para ver a janela de status final do seu personagem."
+    );
 
-      hero.status()
+    hero.status();
   } else if (hero.reputation >= 7) {
     console.log(
       `${hero.name} conseguiu concluir suas tarefas e salvou o reino, mas ainda há como melhorar para ser um herói.
       
       Você concluiu a história em ${day} dias.
-      `);
-      prompt(' Aperte ENTER para ver a janela de status final do seu personagem.');
+      `
+    );
+    prompt(
+      " Aperte ENTER para ver a janela de status final do seu personagem."
+    );
 
-      hero.status()
+    hero.status();
   } else {
     console.log(
       `${hero.name} salvou o reino, mas ainda tem um longo caminho para ser um herói. 
       
       Você concluiu a história em ${day} dias. 
-      `);
-      prompt(' Aperte ENTER para ver a janela de status final do seu personagem.');
+      `
+    );
+    prompt(
+      " Aperte ENTER para ver a janela de status final do seu personagem."
+    );
 
-      hero.status()
+    hero.status();
   }
 
-console.log()
+  console.log();
 
   playAgain = prompt(" Deseja jogar novamente? sim ou nao?").toLowerCase();
 } while (playAgain == "sim");
